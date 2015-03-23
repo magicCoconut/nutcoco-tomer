@@ -58,6 +58,8 @@ class Registration
             $this->errors = "Email cannot be longer than 64 characters";
         } elseif (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
             $this->errors = "Your email address is not in a valid email format";
+        }elseif (empty($_POST['term_commit'])) {
+            $this->errors = "Please commit the terms";
         } elseif (!empty($_POST['user_name'])
             && strlen($_POST['user_name']) <= 64
             && strlen($_POST['user_name']) >= 2

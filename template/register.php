@@ -50,7 +50,7 @@
             <div class="col-xs-8">    
               <div class="checkbox icheck">
                 <label>
-                  <input  type="checkbox"> I agree to the <a href="#">terms</a>
+                  <input type="checkbox" id="term_commit" name="term_commit"> I agree to the <a href="#">terms</a>
                 </label>
               </div>                        
             </div><!-- /.col -->
