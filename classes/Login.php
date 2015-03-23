@@ -13,11 +13,11 @@ class Login
     /**
      * @var array Collection of error messages
      */
-    public $errors = array();
+    public $errors = "";
     /**
      * @var array Collection of success / neutral messages
      */
-    public $messages = array();
+    public $messages = "";
 
     /**
      * the function "__construct()" automatically starts whenever an object of this class is created,
@@ -27,7 +27,7 @@ class Login
     {
         // create/read session, absolutely necessary
         session_start();
-
+        // $this->errors[] = "Sign in to start your session";
         // check the possible login actions:
         // if user tried to log out (happen when user clicks logout button)
         if (isset($_GET["logout"])) {
@@ -46,12 +46,12 @@ class Login
     {
         // check login form contents
         if (empty($_POST['user_name'])) {
-            $this->errors[] = "Username field was empty.";
+            $this->errors = "Username field was empty.";
         } elseif (empty($_POST['user_password'])) {
-            $this->errors[] = "Password field was empty.";
+            $this->errors = "Password field was empty.";
         } elseif (!empty($_POST['user_name']) && !empty($_POST['user_password'])) {
             // if(isset(user_dblogin($_POST['user_name'],$_POST['user_password'])))
-            $this->errors[] = user_dblogin($_POST['user_name'],$_POST['user_password']);
+            $this->errors = user_dblogin($_POST['user_name'],$_POST['user_password']);
             
         }
     }
@@ -66,7 +66,7 @@ class Login
         $_SESSION = array();
         session_destroy();
         // return a little feeedback message
-        $this->messages[] = "You have been logged out.";
+        $this->messages = "You have been logged out.";
 
     }
 

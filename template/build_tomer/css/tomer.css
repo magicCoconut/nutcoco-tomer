@@ -15,10 +15,17 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
+.login-box-msg-danger,
+.register-box-msg-danger {
+  color: #f00;
+}
+
 .login-logo,
 .register-logo {
 
   background: rgba(255,255,255,0.55) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAAsCAYAAABfXOX7AAAAGXRF…exhAyY5gZo7C4D5HRRow64mYNSt2loQMrpJBqRv8TYADLzb7kF3dGUAAAAABJRU5ErkJggg==") center center no-repeat;
   padding: 15px;
   margin: 0;
+  border-bottom: 2px solid #ddd;
+
 }
