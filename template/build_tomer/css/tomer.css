@@ -1,0 +1,24 @@
+body {
+  background-image: url('../img/login_background_3.jpg');
+
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+}
+
+.login-box,
+.register-box {
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);    
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);    
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.login-logo,
+.register-logo {
+
+  background: rgba(255,255,255,0.55) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAAsCAYAAABfXOX7AAAAGXRF…exhAyY5gZo7C4D5HRRow64mYNSt2loQMrpJBqRv8TYADLzb7kF3dGUAAAAABJRU5ErkJggg==") center center no-repeat;
+  padding: 15px;
+  margin: 0;
+}
