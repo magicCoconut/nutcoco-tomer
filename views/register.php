@@ -1,4 +1,9 @@
 <?php
+/**
+ * A simple view runing for register service
+ * @author Yudi An
+ */
+
 // show potential errors / feedback (from registration object)
 $MASSAGE = '<p class="login-box-msg"> Register a new membership </p>';
 if (isset($registration)) {

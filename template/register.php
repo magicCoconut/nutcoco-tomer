@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<!-- register GUI webpage coded by Yudi An -->
+<!-- This webpage is based on Responsive Web Design -->
 <html>
   <head>
     <meta charset="UTF-8">

@@ -3,6 +3,7 @@
 /**
  * Class login
  * handles the user's login and logout process
+ * @author Yudi An
  */
 class Login
 {
@@ -82,5 +83,10 @@ class Login
         }
         // default return
         return false;
+    }
+
+    public function user_id(){
+        if (isset($_SESSION['user_id']))
+            return $_SESSION['user_id'];
     }
 }

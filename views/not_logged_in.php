@@ -1,4 +1,8 @@
 <?php
+/**
+ * if user has not been loged in, this php file will work.
+ * @author Yudi An
+ */
 // show potential errors / feedback (from login object)
 $MASSAGE = '<p class="login-box-msg"> Sign in to start your session </p>';
 if (isset($login)) {
@@ -21,6 +25,7 @@ if (isset($login)) {
 }
 
 $BASE_URL = 'template/';
+
 include("template/login.php");
 
 ?>

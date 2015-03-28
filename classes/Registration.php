@@ -3,6 +3,7 @@
 /**
  * Class registration
  * handles the user registration
+ * @author Yudi An
  */
 class Registration
 {
@@ -38,8 +39,7 @@ class Registration
      * handles the entire registration process. checks all error possibilities
      * and creates a new user in the database if everything is fine
      */
-    private function registerNewUser()
-    {
+    private function registerNewUser() {
         if (empty($_POST['user_name'])) {
             $this->errors = "Empty Username";
         } elseif (empty($_POST['user_password_new']) || empty($_POST['user_password_repeat'])) {
@@ -77,8 +77,6 @@ class Registration
             // change character set to utf8 and check it
             if (!$this->db_connection->set_charset("utf8")) {
                 $this->errors = $this->db_connection->error;
-            }
-
             // if no connection errors= working database connection)
             if (!$this->db_connection->connect_errno) {
 
