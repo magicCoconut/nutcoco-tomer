@@ -114,7 +114,8 @@ function create_toma($user_id){
 
             // get result row (as an object)
             $result_row = $result_of_login_check->fetch_object();
-            $errors = $result_row->toma_id;
+            $id = $result_row->toma_id;
+            return $id;
         }
 
     } else {
@@ -186,5 +187,47 @@ function comfirm_toma($id){
             $errors = 0;
             return $errors;
         }
+}
+
+function get_toma_info($user_id,$start_time,$end_time){
+    $errors = '';
+    $db_connection = null;
+    $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+
+            // change character set to utf8 and check it
+    if (!$db_connection->set_charset("utf8")) {
+        $errors = $db_connection->error;
+    }
+
+    if (!$db_connection->connect_errno) {
+
+        // escaping, additionally removing everything that could be (html/javascript-) code
+        $u_id = $db_connection->real_escape_string(strip_tags($user_id, ENT_QUOTES));       
+        
+        $st = $db_connection->real_escape_string(strip_tags($start_time, ENT_QUOTES));        
+        $et = $db_connection->real_escape_string(strip_tags($end_time, ENT_QUOTES));
+
+        // echo $st.$et;
+        $sql = "SELECT toma_id,toma_time,toma_status
+                FROM tomato
+                WHERE user_id = '" . $u_id . "' AND DATEDIFF(toma_time,'" . $st . "') >=0 AND DATEDIFF(toma_time,'" . $et . "')<=0";
+
+        $result_of_login_check = $db_connection->query($sql);
+
+        $info = array('login: '=>'true','rows: '=>$result_of_login_check->num_rows);
+        if ($result_of_login_check->num_rows >= 1) {
+
+            while($row = $result_of_login_check->fetch_assoc()) {
+            $arr = array('tomato_id'=>$row["toma_id"],'toma_start'=>$row["toma_time"],'toma_status'=>$row["toma_status"]);
+            array_push($info,$arr);
+            }
+            return $info;
+        }
+    }else {
+        $errors = "Sorry, no database connection.";
+    }
+
+    return $errors;
 
 }

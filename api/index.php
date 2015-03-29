@@ -8,7 +8,7 @@
  * @author Yudi An
  */
 
-// ini_set("display_errors", 1); test error use
+ini_set("display_errors", 1); 
 
 require_once("../config/db.php");
 require_once("../classes/Login.php"); //need to check login
@@ -18,14 +18,14 @@ $login = new Login();
 if ($login->isUserLoggedIn() == true) {
 
 	$user_id = $login->user_id();
+
 	if (isset($_GET['action'])) {
 
         /*used for api.php?action=new_tomato */
         if($_GET['action']=='new_tomato'){
 
         	$id = create_toma($user_id);
-
-            echo '2015'.$id;
+            echo 'var toma_id = 2015'. $id ;
         }
 
         /*used for pi.php?action=confirm$$id=... */
@@ -35,11 +35,34 @@ if ($login->isUserLoggedIn() == true) {
         	if(substr($id,0,4)=='2015')
                 $toma_id = substr($id,4,strlen($id));
                 // echo $toma_id;
-        		 echo comfirm_toma($toma_id);   		
-        } 
+        		 echo 'operate successfull!';   		
+        }
+
+        else if($_GET['action']=='check_history') {
+            $st = '1999-01-01';
+            $et = '2037-01-01';
+
+            if(isset($_GET['start_time']))
+                $st = $_GET['start_time'];
+            if(isset($_GET['end_time']))
+                $et = $_GET['end_time'];
+
+            $info = get_toma_info($user_id,$st,$et);
+            // $info=get_toma_info($user_id);
+
+
+            if(isset($_GET['format']) && $_GET['format']=='js')
+                echo "var remote_toma_info =", json_encode($info, JSON_FORCE_OBJECT), "\n\n";             
+            else if(isset($_GET['format']) && $_GET['format']=='json') 
+                echo json_encode($info, JSON_FORCE_OBJECT);          
+        }
+
     } 
-}    
-echo -1;
+
+}  else{
+    echo -1;
+}  
+
 
 
 
