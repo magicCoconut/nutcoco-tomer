@@ -1,0 +1,21 @@
+@import url(tomatoro_small_screen.css) all and (max-width:600px);
+@import url(tomatoro_normal_screen.css) all and (min-width:601px);
+* {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+article a {
+    color: #93c47d;
+    font-weight: 700;
+}
+div#timer {
+    width: 270px;
+    margin: 0 auto;
+}
+span.tomatoro,
+article h1 {
+    color: #e06666;
+    text-transform: uppercase;
+    font-weight: 700;
+}

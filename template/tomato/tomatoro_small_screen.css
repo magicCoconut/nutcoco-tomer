@@ -1,0 +1,43 @@
+article,
+div {
+    font-family: sans-serif;
+    background: #FFF;
+    width: auto;
+    margin: 0 auto;
+    padding: 1em;
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url(zig-zag.png) bottom left repeat-x;
+    height: 2em;
+    z-index: 10;
+}
+header a {
+    font-size: 1em;
+    color: #FFF;
+    text-decoration: none;
+    padding: .5em;
+}
+aside,
+header,
+article,
+form,
+h3 {
+    display: none;
+}
+div#control {
+    text-align: center;
+    width: auto;
+}
+div#control button {
+    padding: 1em;
+}
+article.intro {
+    display: block;
+}
+footer {
+    text-align: center;
+}

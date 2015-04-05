@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis&subset=latin,latin-ext);
+article,
+div {
+    font-family: Dosis, sans-serif;
+    background: #FFF;
+    max-width: 49em;
+    margin: 0 auto;
+    padding: 1em;
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url(zig-zag.png) bottom left repeat-x;
+    height: 3em;
+    z-index: 10;
+}
+header a {
+    font-size: 2em;
+    color: #FFF;
+    text-decoration: none;
+    padding: .5em;
+}
+body {
+    background: url(diagonal.png) #F5EFDB;
+}
+article.intro p,
+article.intro aside {
+    font-size: 1.3em;
+}
+article.intro aside {
+    margin: 0;
+    padding: 0;
+}
+article.intro p {
+    display: inline-block;
+}
+article.intro p:first-child {
+    margin-top: 3em;
+}
+article p,
+article aside {
+    font-size: 1.1em;
+    text-align: justify;
+}
+aside {
+    display: inline;
+}
+div#control {
+    text-align: center;
+}
+div#control button {
+    display: inline-block;
+    font-size: 1.4em;
+    padding: 0 1em;
+}
+footer {
+    text-align: center;
+    font-family: Dosis, sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: gray;
+    margin: 2em;
+}

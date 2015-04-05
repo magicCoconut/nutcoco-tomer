@@ -129,7 +129,20 @@
 
                     // Output formatting, allows to add unit: %, ms ...
                     format: function(v) {
-                        return v;
+                        // return v+'s';
+                        if(v<=0){
+                            var min_t = 25;
+                            var sec_t = 0;
+                        } else{
+                            min_t = Math.floor(Math.round(v)/60);
+                            sec_t = Math.round(v)-min_t*60;
+                        }
+
+                        if(sec_t>9){
+                            return  min_t +" : " + sec_t;
+                        } else {
+                            return min_t +" : " + "0"+sec_t;
+                        }
                     },
                     parse: function (v) {
                         return parseFloat(v);
@@ -192,7 +205,7 @@
             this.$div = $('<div style="'
                 + (this.o.inline ? 'display:inline;' : '')
                 + 'width:' + this.o.width + 'px;height:' + this.o.height + 'px;'
-                + '"></div>');
+                + '" id = "circletimer" ondblclick="turnToma()" ></div>');
 
             this.$.wrap(this.$div).before(this.$c);
             this.$div = this.$.parent();
@@ -710,8 +723,8 @@
                         'height' : ((this.w / 3) >> 0) + 'px',
                         'position' : 'absolute',
                         'vertical-align' : 'middle',
-                        'margin-top' : ((this.w / 3) >> 0) + 'px',
-                        'margin-left' : '-' + ((this.w * 3 / 4 + 2) >> 0) + 'px',
+                        'margin-left' : ((this.w / 3) >> 0) + 'px',
+                        'margin-top' : '-' + ((this.w * 3 / 4 + 2) >> 0) + 'px',
                         'border' : 0,
                         'background' : 'none',
                         'font' : this.o.fontWeight + ' ' + ((this.w / s) >> 0) + 'px ' + this.o.font,
