@@ -26,7 +26,7 @@
 				<canvas width='260' height='260' id='timer-canvas' ondblclick="turnText()" >Your browser does not support the CANVAS element. Try updating to the latest version of Firefox, Chrome, Opera or Safari.
 				</canvas>
 				<!-- <div style=" text-align: center ; display: none;"id='textimer' > -->
-                      <input type="text" class="knob second" data-min="0" data-max="1500"  data-thickness="0.1" data-width="225" data-skin="tron" data-height="225" data-fgColor="#f56954 " ondblclick="turnToma()" data-readonly="true" style=" text-align: center ; display: none;"id='textimer'>
+                      <input type="text" class="knob second" data-min="0" data-max="1500"  data-thickness="0.1" data-width="225" data-skin="tron" data-height="225" data-fgColor="#f56954 " data-rotation= 'acw' ondblclick="turnToma()" data-readonly="true" style=" text-align: center ; display: none;"id='textimer'>
                 <!-- </div> -->
                  
 				
@@ -37,8 +37,8 @@
 				</audio>
 				<div id='control'>
 					<!-- <input type="text" style=""> -->
-					<button onclick="startTimer()">Start</button>
-					<button onclick="stopTimer()">Stop</button>
+					<button onclick="startTimer()"style=" display: inline block;" id = 'startbt'>Start</button>
+					<button onclick="stopTimer()"style=" display: none;"id = 'dropbt'>Stop</button>
 				</div>
 			</div>
 			<h3 >Settings</h3>

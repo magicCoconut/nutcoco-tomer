@@ -63,6 +63,8 @@ Timer = function() {
             this.realTime = this.realTime - 1
         }
         if (this.prevTime != 0 && Math.round(this.realTime) == 0) {
+           
+        
             playBellSound()
         }
         if (this.isRunning()) {
@@ -75,6 +77,16 @@ Timer = function() {
         this.shownTime = (this.shownTime * this.slowness + this.realTime) / (this.slowness + 1)
     };
     this.start = function(a) {
+
+        // $.getScript("http://tomer.nutcoco.com/api/index.php?action=new_tomato",function(){
+        //     HelperFileLoaded = true;
+        // });
+        $.ajax({
+            async: false,
+            url: "http://tomer.nutcoco.com/api/index.php?action=new_tomato",
+            dataType: "script"
+        });
+        
         this.realTime = a
     };
     this.stop = function() {
@@ -214,15 +226,39 @@ Tomato = function(a) {
 };
 var myTomato = new Tomato(.55);
 var stemShape = new Array;
+
+
+
+// var toma_id;
 startTimer = function() {
     // src("http://tomer.nutcoco.com/api/index.php?action=new_tomato");
-    myTimer.start(60 * 25)
+    
+    document.getElementById("startbt").style.display = "none";
+    document.getElementById("dropbt").style.display = "inline";
+    // alert(toma_id);
+    
+    // $.get( "http://tomer.nutcoco.com/api/index.php?action=confirm&id=".toma_id );
+    myTimer.start(60 * 25);
+    // setTimeout(donothing,5000);
+    // if(!HelperFileLoaded) return;
+    
+    
+    
 };
 
 stopTimer = function() {
     myTimer.stop()
 };
 playBellSound = function() {
+    $.ajax({
+      url: "http://tomer.nutcoco.com/api/index.php",
+      type: "get", //send it through get method
+      data:{action:"confirm",id: toma_id},
+
+    });
+    document.getElementById("startbt").style.display = "inline";
+    document.getElementById("dropbt").style.display = "none";
+     // $.get( "http://tomer.nutcoco.com/api/index.php?action=confirm", { 'id': toma_id } );
     document.getElementById("bell").play()
 };
 playTickSound = function() {

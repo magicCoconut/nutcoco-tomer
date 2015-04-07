@@ -12,7 +12,7 @@ ini_set("display_errors", 1);
 
 require_once("../config/db.php");
 require_once("../classes/Login.php"); //need to check login
-
+header('Content-Type: text/javascript');
 //check login otherwise return -1
 $login = new Login();
 if ($login->isUserLoggedIn() == true) {
@@ -25,7 +25,8 @@ if ($login->isUserLoggedIn() == true) {
         if($_GET['action']=='new_tomato'){
 
         	$id = create_toma($user_id);
-            echo 'var toma_id = 2015'. $id ;
+            echo 'var toma_id = 2015'. $id.";" ;
+            // echo '2015'.$id;
         }
 
         /*used for pi.php?action=confirm$$id=... */
@@ -34,6 +35,7 @@ if ($login->isUserLoggedIn() == true) {
             // echo $id;
         	if(substr($id,0,4)=='2015')
                 $toma_id = substr($id,4,strlen($id));
+                comfirm_toma($toma_id);
                 // echo $toma_id;
         		 echo 'operate successfull!';   		
         }
@@ -60,7 +62,7 @@ if ($login->isUserLoggedIn() == true) {
     } 
 
 }  else{
-    echo -1;
+    echo "var none= 'YOU NEED TO LOGIN';";
 }  
 
 

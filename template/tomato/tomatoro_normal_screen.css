@@ -23,7 +23,7 @@ header a {
     padding: .5em;
 }
 body {
-    background: url(diagonal.png) #F5EFDB;
+    background-color: #F0F3F4
 }
 article.intro p,
 article.intro aside {
@@ -57,9 +57,17 @@ div#control button {
 }
 footer {
     text-align: center;
-    font-family: Dosis, sans-serif;
+   /* font-family: Dosis, sans-serif;
     font-size: 1.2em;
     font-weight: 700;
     color: gray;
-    margin: 2em;
+    margin: 2em;*/
+    
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #777;
+
+    border-top: 1px solid #e8e8e8;
+    background-color: #f5f5f5;
+    font-family: 'Open Sans', 'Helevetic Neue', Arial, sans-serif;
 }
